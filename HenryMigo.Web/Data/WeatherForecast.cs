@@ -1,6 +1,6 @@
 using System;
 
-namespace Migo.Codes.Website.Data
+namespace HenryMigo.Web.Data
 {
     public class WeatherForecast
     {

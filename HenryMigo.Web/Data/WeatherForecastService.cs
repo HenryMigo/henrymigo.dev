@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Migo.Codes.Website.Data
+namespace HenryMigo.Web.Data
 {
     public class WeatherForecastService
     {

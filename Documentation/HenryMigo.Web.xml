@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HenryMigo.Web</name>
+    </assembly>
+    <members>
+        <member name="T:HenryMigo.Web.Pages.Error">
+            <summary>
+            Error code behind the page.
+            </summary>
+        </member>
+        <member name="P:HenryMigo.Web.Pages.Error.RequestId">
+            <summary>
+            Gets or sets Request Id.
+            </summary>
+        </member>
+        <member name="P:HenryMigo.Web.Pages.Error.ShowRequestId">
+            <summary>
+            Gets a value indicating whether to display to the front end.
+            </summary>
+        </member>
+        <member name="M:HenryMigo.Web.Pages.Error.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:HenryMigo.Web.Pages.Error"/> class.
+            </summary>
+        </member>
+        <member name="M:HenryMigo.Web.Pages.Error.OnGet">
+            <summary>
+            When getting a the request id.
+            </summary>
+        </member>
+    </members>
+</doc>

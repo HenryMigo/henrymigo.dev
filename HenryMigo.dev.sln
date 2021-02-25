@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.30626.31
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HenryMigo.Web", "HenryMigo.Web\HenryMigo.Web.csproj", "{DAB10DF6-D4AF-4599-8AF0-7D676EFC58CB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_stylecop", "_stylecop", "{529744D4-8F4D-40DE-956D-E39551229A78}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		stylecop\stylecop.ruleset = stylecop\stylecop.ruleset
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

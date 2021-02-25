@@ -1,29 +1,41 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿// <copyright file="Error.cshtml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace HenryMigo.Web.Pages
 {
+    /// <summary>
+    /// Error code behind the page.
+    /// </summary>
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     [IgnoreAntiforgeryToken]
-    public class ErrorModel : PageModel
+    public class Error : PageModel
     {
+        /// <summary>
+        /// Gets or sets Request Id.
+        /// </summary>
         public string RequestId { get; set; }
 
+        /// <summary>
+        /// Gets a value indicating whether to display to the front end.
+        /// </summary>
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
-        private readonly ILogger<ErrorModel> _logger;
-
-        public ErrorModel(ILogger<ErrorModel> logger)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Error"/> class.
+        /// </summary>
+        public Error()
         {
-            _logger = logger;
         }
 
+        /// <summary>
+        /// When getting a the request id.
+        /// </summary>
         public void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;

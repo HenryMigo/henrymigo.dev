@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 
 namespace HenryMigo.Web
 {
@@ -37,6 +38,10 @@ namespace HenryMigo.Web
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            services.AddHttpClient("BackendAPI", client =>
+            {
+                client.BaseAddress = new Uri(Configuration["ApiURL"]);
+            });
         }
 
         /// <summary>

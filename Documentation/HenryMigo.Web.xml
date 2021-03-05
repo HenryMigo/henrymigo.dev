@@ -29,5 +29,52 @@
             When getting a the request id.
             </summary>
         </member>
+        <member name="T:HenryMigo.Web.Program">
+            <summary>
+            Program class.
+            </summary>
+        </member>
+        <member name="M:HenryMigo.Web.Program.Main(System.String[])">
+            <summary>
+            Main entry point for application.
+            </summary>
+            <param name="args">Application arguments.</param>
+        </member>
+        <member name="M:HenryMigo.Web.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Main method to create host.
+            </summary>
+            <param name="args">Application arguments.</param>
+            <returns>Returns IHostBuilder.</returns>
+        </member>
+        <member name="T:HenryMigo.Web.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:HenryMigo.Web.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:HenryMigo.Web.Startup"/> class.
+            </summary>
+            <param name="configuration">Passes in configuration values.</param>
+        </member>
+        <member name="P:HenryMigo.Web.Startup.Configuration">
+            <summary>
+            Gets the configuration values.
+            </summary>
+        </member>
+        <member name="M:HenryMigo.Web.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Takes services.</param>
+        </member>
+        <member name="M:HenryMigo.Web.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Provide the class that configures the application.</param>
+            <param name="env">Provides information about the environment.</param>
+        </member>
     </members>
 </doc>

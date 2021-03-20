@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Octokit;
 using System.Collections.Generic;
@@ -21,8 +22,7 @@ namespace HenryMigo.API.Controllers
         public async Task<IReadOnlyList<Repository>> Get()
         {
             var client = new GitHubClient(new ProductHeaderValue("HenryMigo.dev"));
-            var auth = new Credentials("f8eb5e5cd7861837b4f7bf08d84245841216a6fe");
-            client.Credentials = auth;
+            client.Credentials = new Credentials("token", AuthenticationType.Anonymous);
 
             var repos = await client.Repository.GetAllForUser("HenryMigo");
             

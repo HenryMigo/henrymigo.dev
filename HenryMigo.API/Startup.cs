@@ -30,7 +30,7 @@ namespace HenryMigo.API
             {
                 client.BaseAddress = new Uri(Configuration["GitHubURL"]);
             });
-
+          
             services.AddSingleton(Configuration);
         }
 

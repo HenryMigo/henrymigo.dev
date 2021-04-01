@@ -1,0 +1,69 @@
+﻿@page "/repos"
+
+@using HenryMigo.Shared.Models
+@using System.Collections.Generic
+@using System.Net.Http
+@using Newtonsoft.Json;
+@inject IHttpClientFactory ClientFactory
+
+<style scoped>
+    div {
+        margin-bottom: 10px;
+    }
+</style>
+
+<h3>Repos</h3>
+
+@if (gitHubRepos.Count != 0)
+{
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+        @foreach (var repo in gitHubRepos)
+        {
+            <div class="col">
+                <div class="card text-dark bg-light mb-3 h-100 d-flex flex-column">
+                    <div class="card-body">
+                        <h5 class="card-title">@repo.Name</h5>
+                        <p class="card-text">@repo.Description</p>
+                    </div>
+                    <div class="card-footer">
+                        <a id="GitButton" href="@repo.HtmlUrl" class="btn btn-primary mt-auto" target="_blank">Go to repo</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@if (gitHubRepos.Count == 0)
+{
+<div class="w-100 d-flex justify-content-center align-items-center">
+    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+        <span class="visually-hidden">Loading Repo's</span>
+    </div>
+    <strong style="margin-left: 5px;">Loading...</strong>
+</div>
+}
+
+@code {
+    private List<GitHubRepo> gitHubRepos = new List<GitHubRepo>();
+    private string orgId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using (var client = ClientFactory.CreateClient("BackendAPI"))
+        {
+            try
+            {
+                var repoString = await client.GetStringAsync("/api/github");
+
+                var repos = JsonConvert.DeserializeObject<List<GitHubRepo>>(repoString);
+
+                gitHubRepos = repos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+    }
+}

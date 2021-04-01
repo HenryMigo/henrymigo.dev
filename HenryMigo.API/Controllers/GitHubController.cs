@@ -21,8 +21,7 @@ namespace HenryMigo.API.Controllers
         public async Task<IReadOnlyList<Repository>> Get()
         {
             var client = new GitHubClient(new ProductHeaderValue("HenryMigo.dev"));
-            var auth = new Credentials("e8dcb5236e8bf6c5de38d5365f64daecea8b65cd");
-            client.Credentials = auth;
+            client.Credentials = new Credentials("token", AuthenticationType.Anonymous);
 
             var repos = await client.Repository.GetAllForUser("HenryMigo");
             

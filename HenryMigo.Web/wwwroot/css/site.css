@@ -8,10 +8,6 @@ a, .btn-link {
     color: #0366d6;
 }
 
-.content {
-    margin-bottom: 10px;
-}
-
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
@@ -46,9 +42,9 @@ a, .btn-link {
     z-index: 1000;
 }
 
-    #blazor-error-ui .dismiss {
-        cursor: pointer;
-        position: absolute;
-        right: 0.75rem;
-        top: 0.5rem;
-    }
+#blazor-error-ui .dismiss {
+    cursor: pointer;
+    position: absolute;
+    right: 0.75rem;
+    top: 0.5rem;
+}

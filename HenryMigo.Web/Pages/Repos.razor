@@ -4,12 +4,13 @@
 @using System.Collections.Generic
 @using System.Net.Http
 @using Newtonsoft.Json;
+@using Octokit
 @inject IHttpClientFactory ClientFactory
 
 <style scoped>
-    div {
-        margin-bottom: 10px;
-    }
+.content {
+    margin-bottom: 10px;
+}
 </style>
 
 <h3>Repos</h3>
@@ -36,34 +37,31 @@
 
 @if (gitHubRepos.Count == 0)
 {
-<div class="w-100 d-flex justify-content-center align-items-center">
-    <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-        <span class="visually-hidden">Loading Repo's</span>
+    <div class="w-100 d-flex justify-content-center align-items-center">
+        <div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
+            <span class="visually-hidden">Loading Repo's</span>
+        </div>
+        <strong style="margin-left: 5px;">Loading...</strong>
     </div>
-    <strong style="margin-left: 5px;">Loading...</strong>
-</div>
 }
 
 @code {
-    private List<GitHubRepo> gitHubRepos = new List<GitHubRepo>();
-    private string orgId { get; set; }
+    private IReadOnlyList<Repository> gitHubRepos = new List<Repository>();
 
     protected override async Task OnInitializedAsync()
     {
-        using (var client = ClientFactory.CreateClient("BackendAPI"))
+        try
         {
-            try
-            {
-                var repoString = await client.GetStringAsync("/api/github");
+            var client = new GitHubClient(new ProductHeaderValue("HenryMigo.dev"));
+            client.Credentials = new Credentials("token", AuthenticationType.Anonymous);
 
-                var repos = JsonConvert.DeserializeObject<List<GitHubRepo>>(repoString);
+            var repos = await client.Repository.GetAllForUser("HenryMigo");
 
-                gitHubRepos = repos;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            gitHubRepos = repos;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
         }
     }
 }

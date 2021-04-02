@@ -19,12 +19,12 @@
     <DocumentationFile>D:\dev\henrymigo.dev\HenryMigo.Web\HenryMigo.Web.xml</DocumentationFile>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Models\**" />
-    <Content Remove="Models\**" />
-    <EmbeddedResource Remove="Models\**" />
-    <None Remove="Models\**" />
-  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\dev\henrymigo.dev\Documentation\HenryMigo.Web.xml</DocumentationFile>
+    <NoWarn>1701;1702</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <WarningsAsErrors></WarningsAsErrors>
+  </PropertyGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\js\" />

@@ -1,4 +1,6 @@
-﻿<div class="top-row pl-4 ps-4 navbar navbar-dark">
+﻿@using NLog
+@using Microsoft.Extensions.Logging
+<div class="top-row pl-4 ps-4 navbar navbar-dark">
     <a class="navbar-brand" href="">HenryMigo.dev</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
@@ -19,10 +21,9 @@
         </li>
     </ul>
 </div>
-
+@inject ILogger<NavMenu> _logger;
 @code {
     private bool _collapseNavMenu = true;
-
     private string? NavMenuCssClass => _collapseNavMenu ? "collapse" : null;
 
     private void ToggleNavMenu()

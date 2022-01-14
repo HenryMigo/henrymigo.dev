@@ -1,11 +1,13 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
 	  <CodeAnalysisRuleSet>../stylecop/stylecop.ruleset</CodeAnalysisRuleSet>
 	  <UserSecretsId>dfb878dd-f7d7-4eac-a8fb-8ee3a5bf3f04</UserSecretsId>
 	  <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+	  <LangVersion>default</LangVersion>
+	  <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

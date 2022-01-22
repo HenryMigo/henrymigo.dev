@@ -4,7 +4,6 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
 namespace HenryMigo.Web.Pages
@@ -19,7 +18,7 @@ namespace HenryMigo.Web.Pages
         /// <summary>
         /// Gets or sets Request Id.
         /// </summary>
-        public string RequestId { get; set; }
+        public string? RequestId { get; set; }
 
         /// <summary>
         /// Gets a value indicating whether to display to the front end.

@@ -1,6 +1,7 @@
 ﻿@page "/repos"
 @using Octokit
 @using Microsoft.Extensions.Logging
+@using HenryMigo.Web.Components
 
 <div>
     <h3>Repositories:</h3>
@@ -11,28 +12,7 @@
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-5 g-4">
             @foreach (var repo in _gitHubRepos)
             {
-                <div class="col">
-                    <div class="card border-dark mb-3 h-100 d-flex flex-column">
-                        <div class="card-body">
-                            <h5 class="card-title">@repo.Name</h5>
-                            @if (repo.Description?.Length > 150)
-                            {
-                                <p class="card-text">@(repo.Description[..150])...</p>
-                            }
-                            else
-                            {
-                                <p class="card-text">@(repo.Description ?? "No Description")</p>
-                            }
-                        </div>
-                        <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a id="GitButton" href="@repo.HtmlUrl" class="btn btn-outline-dark mt-auto btn-sm" target="_blank">
-                                <span class="btn-label">
-                                    <i class="bi bi-github"></i>
-                                </span> Go to repo
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <Repo repo="@repo"/>
             }
         </div>
     }

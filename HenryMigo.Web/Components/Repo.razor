@@ -1,0 +1,32 @@
+@using Octokit
+
+<div class="col">
+    <div class="card border-dark mb-3 h-100 d-flex flex-column">
+        <div class="card-body">
+            <h5 class="card-title">@repo?.Name</h5>
+            @if (repo?.Description?.Length > 150)
+            {
+                <p class="card-text">@(repo?.Description[..150])...</p>
+            }
+            else
+            {
+                <p class="card-text">@(repo?.Description ?? "No Description")</p>
+            }
+        </div>
+        <div class="card-footer d-grid gap-2 d-md-flex justify-content-md-end">
+            <a id="GitButton" href="@repo?.HtmlUrl" class="btn btn-outline-dark mt-auto btn-sm" target="_blank">
+                <span class="btn-label">
+                    <i class="bi bi-github"></i>
+                </span> Go to repo
+            </a>
+        </div>
+    </div>
+</div>
+
+@code {
+    /// <summary>
+    /// The singular repository object
+    /// </summary>
+    [Parameter]
+    public Repository? repo { get; set; }
+}

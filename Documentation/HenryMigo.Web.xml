@@ -29,6 +29,12 @@
             When getting a the request id.
             </summary>
         </member>
+        <member name="M:HenryMigo.Web.Pages.Repos.OnInitializedAsync">
+            <summary>
+            On initialisation of page get git repos.
+            </summary>
+            <exception cref="T:System.Exception">Catch exception, log and set _gitHubRepos to empty list</exception>
+        </member>
         <member name="T:HenryMigo.Web.Program">
             <summary>
             Program class.
@@ -75,6 +81,11 @@
             </summary>
             <param name="app">Provide the class that configures the application.</param>
             <param name="env">Provides information about the environment.</param>
+        </member>
+        <member name="P:HenryMigo.Web.Components.Repo.repo">
+            <summary>
+            The singular repository object
+            </summary>
         </member>
     </members>
 </doc>

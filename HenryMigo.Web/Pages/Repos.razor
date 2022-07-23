@@ -54,7 +54,13 @@
                 Credentials = new Credentials("token", AuthenticationType.Anonymous)
             };
 
-            var repos = await client.Repository.GetAllForUser("HenryMigo");
+            var repos = await client.Repository.GetAllForUser("HenryMigo", new ApiOptions
+            {
+                PageCount = 1,
+                PageSize = 15,
+                StartPage = 1
+            });
+
             _gitHubRepos = repos ?? new List<Repository>();
             _isLoading = false;
         }

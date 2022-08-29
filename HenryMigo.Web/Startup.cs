@@ -1,5 +1,5 @@
-// <copyright file="Startup.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// <copyright file="Startup.cs" company="Henry Migo">
+// Copyright (c) Henry Migo. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Builder;
@@ -7,9 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using NLog;
-using NLog.Web;
 
 namespace HenryMigo.Web
 {

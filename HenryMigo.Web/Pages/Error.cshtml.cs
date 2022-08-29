@@ -1,5 +1,5 @@
-﻿// <copyright file="Error.cshtml.cs" company="PlaceholderCompany">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+﻿// <copyright file="Error.cshtml.cs" company="Henry Migo">
+// Copyright (c) Henry Migo. All rights reserved.
 // </copyright>
 
 using Microsoft.AspNetCore.Mvc;

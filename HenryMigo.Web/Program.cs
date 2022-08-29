@@ -1,5 +1,5 @@
 // <copyright file="Program.cs" company="Henry Migo">
-// Copyright (c) PlaceholderCompany. All rights reserved.
+// Copyright (c) Henry Migo. All rights reserved.
 // </copyright>
 
 using System;

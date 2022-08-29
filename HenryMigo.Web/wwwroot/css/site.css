@@ -31,6 +31,10 @@ a, .btn-link {
     color: red;
 }
 
+.main {
+    height: 94.25%;
+}
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -49,4 +53,3 @@ a, .btn-link {
     right: 0.75rem;
     top: 0.5rem;
 }
-

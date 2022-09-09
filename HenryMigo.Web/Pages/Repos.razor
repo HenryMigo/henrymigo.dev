@@ -36,13 +36,15 @@
     }
 </div>
 
-@inject ILogger<Repos> _logger;
-@inject IMemoryCache _memoryCache;
+@inject ILogger<Repos> Logger;
+@inject IMemoryCache MemoryCache;
 
 @code {
     private IReadOnlyList<Repository> _gitHubRepos = new List<Repository>();
     private bool _isLoading = true;
-    private string _repoKey = "repos";
+    private const string RepoKey = "repos";
+    private const string Username = "HenryMigo";
+    private const string WebsiteName = "HenryMigo.dev";
 
     /// <summary>
     /// On initialisation of page get git repos.
@@ -50,24 +52,24 @@
     /// <exception cref="Exception">Catch exception, log and set _gitHubRepos to empty list</exception>
     protected override async Task OnInitializedAsync()
     {
-        if (!_memoryCache.TryGetValue(_repoKey, out IReadOnlyList<Repository> repos))
+        if (!MemoryCache.TryGetValue(RepoKey, out IReadOnlyList<Repository>? repos))
         {
             try
             {
-                var client = new GitHubClient(new ProductHeaderValue("HenryMigo.dev"))
-                    {
-                        Credentials = new Credentials("token", AuthenticationType.Anonymous)
-                    };
+                var client = new GitHubClient(new ProductHeaderValue(WebsiteName))
+                {
+                    Credentials = new Credentials("token", AuthenticationType.Anonymous)
+                };
 
-                repos = await client.Repository.GetAllForUser("HenryMigo");
+                repos = await client.Repository.GetAllForUser(Username);
 
-                var cacheOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(15));
+                var cacheOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromMinutes(30));
 
-                _memoryCache.Set(_repoKey, repos, cacheOptions);
+                MemoryCache.Set(RepoKey, repos, cacheOptions);
             }
             catch (Exception exception)
             {
-                _logger.LogError(exception, "Failed to get git repositories");
+                Logger.LogError(exception, "Failed to get repositories");
             }
         }
 
